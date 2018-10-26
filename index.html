@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enrolment in Higher Education</title>
+
+  <!--<link rel="stylesheet" href="styles/normalize.min.css">-->
+  <link rel="stylesheet" href="styles/new.css">
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/themes/dark-unica.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+
+</head>
+<body>
+
+<!--link to database http://data.un.org/Data.aspx?d=UNESCO&f=series%3aE_56&c=2,3,5,7,9,10&s=ref_area_name:asc,time_period:desc&v=1-->
+<header>
+  <h1>US Enrollment in Higher Education</h1>
+
+  <p>By Lorenzo Phrasavath</p>
+</header>
+
+<div id="container">
+
+  <p>In a study conducted by the Center on Education and The Workforce at Georgetown university, <a href="https://money.cnn.com/2016/06/30/news/economy/college-grads-jobs/index.html">researchers found that 8.4 out of the 11.6 million jobs created after the Great Recession went to those with at least a bachelor’s degree.</a> As college degrees become ever more valuable, it's important to look at how gender plays a role in who gets a degree and who doesn’t. Across the world’s top countries, we see that females tend to have higher enrollment rates in college than males. Among the eight largest economies in the world, five have a great number of female students than male. In the US, females make up nearly 57% of all students enrolled in post-secondary education.</p>
+
+<div id="chart1"></div>
+
+  <p class="source">Source: UNESCO Institute for Statistics, <a href="http://data.un.org/Data.aspx?d=UNESCO&f=series%3aE_56&c=2,3,5,7,9,10&s=ref_area_name:asc,time_period:desc&v=1">Enrollment in tertiary education (ISCED 5, 6, 7 and 8) . Public and private. Both sexes</a>
+
+  <p><a href="http://www.pewresearch.org/fact-tank/2014/03/06/womens-college-enrollment-gains-leave-men-behind/">According to a Pew Research study</a>, this trend in higher female enrollment in college is nothing new. Since 1994, recent female high school graduates have shown increasingly higher rates of college enrollment. In 2012, 71% of recent female high school graduates enrolled in college immediately after high school, while only 61% of male students did the same. While the number of students enrolling in college is rising, this disparity in male and female enrollment continues to increase the gender gap in US higher education. Based on these numbers, we can see that more work needs to be done to encourage young male students to see the benefits of college and pursue a higher education.</p>
+
+<div id="chart2"></div>
+
+  <p class="source">Source: UNESCO Institute for Statistics, <a href="http://data.un.org/Data.aspx?d=UNESCO&f=series%3aE_56&c=2,3,5,7,9,10&s=ref_area_name:asc,time_period:desc&v=1">Enrollment in tertiary education (ISCED 5, 6, 7 and 8) . Public and private. Both sexes</a>
+
+
+
+<footer>
+  <p>Created by Lorenzo Phrasavath</p>
+</footer>
+
+</div>
+
+
+
+<!--charts-->
+<script>
+  Highcharts.chart('chart1', {
+  chart: {
+    type: 'bar'
+  },
+  title: {
+    text: 'Enrollment in Tertiary Education by Sex'
+  },
+  subtitle: {
+    text: '2013'
+  },
+  xAxis: {
+    categories: ['USA', 'China', 'Japan', 'Germany', 'India', 'UK', 'France', 'Brazil'],
+    title: {
+      text: null
+    }
+  },
+  yAxis: {
+    min: 0,
+    max: 100,
+    title: {
+      text: 'Total Enrollment (%)',
+      align: 'high'
+    },
+    labels: {
+      overflow: 'justify'
+    }
+  },
+  tooltip: {
+   valueSuffix: '%'
+ },
+ legend: {
+   layout: 'vertical',
+   align: 'right',
+   verticalAlign: 'top',
+   x: -40,
+   y: 80,
+   floating: true,
+   borderWidth: 1,
+   backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+   shadow: true
+ },
+ credits: {
+   enabled: false
+ },
+series: [{
+ name: 'Male',
+ data: [43.42, 49.28, 53.44, 52.88, 54.06, 43.92, 45.45, 42.85]
+}, {
+ name: 'Female',
+ data: [56.58, 50.72, 46.56, 47.12, 45.94, 56.08, 54.55, 57.15]
+}]
+});
+</script>
+
+<script>
+Highcharts.chart('chart2', {
+
+    title: {
+        text: 'US Enrollment in Tertiary Education by Sex'
+    },
+
+    subtitle: {
+        text: '2003-2013'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Number of Students'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 2003
+        }
+    },
+
+    series: [{
+        name: 'Male',
+        data: [7202116, 7255551, 7387262, 7455925, 7574815, 7815910, 8188895, 8769504, 9044811, 9026499, 8672071]
+    }, {
+        name: 'Female',
+        data: [9409595, 9644920, 9884782, 10031550, 10184055, 10432214, 10913919, 11658205, 11971315, 11967614, 11300552]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
+</script>
+
+</body>
+</html>
